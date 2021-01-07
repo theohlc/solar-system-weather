@@ -23,7 +23,7 @@ class WeatherGetter
     def information
         get_information
         disp_temp = temp_f.truncate
-        "In #{name}, it is #{disp_temp} degrees fahrenheit. The prevailing condition is #{conditions.downcase}"
+        "In #{name}, it is #{disp_temp} degrees fahrenheit. The prevailing condition is #{conditions.downcase}."
     end
 
     def temp_f

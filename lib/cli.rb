@@ -20,7 +20,9 @@ class WeatherController
             puts "#{weather_getter.temp_f}, sounds nice."
         end
         puts "It must feel like #{comp_planet.name}!"
+        comp_planet.planet_facts
     end
+
 
 
 
