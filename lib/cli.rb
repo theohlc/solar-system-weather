@@ -1,22 +1,7 @@
 class WeatherController
     def initialize
-        
-    end
-
-    def call
-        user_input = String.new
         puts "Hello! Welcome to Solar System Weather!"
-        puts "To see the weather for a location please type 'weather'. \n
-        This will also display facts about a planet in our solar system."
-        puts "To exit, type 'exit'"
-
-        until user_input == 'exit'
-            user_input = gets
-            if user_input == 'weather'
-                get_weather
-                break
-            end
-        end
+        get_weather
     end
 
     def get_weather
@@ -24,10 +9,20 @@ class WeatherController
         puts "Please enter the US zip code or city name:"
         user_input = gets
 
-        @weather_getter = WeatherGetter.new(user_input)
+        weather_getter = WeatherGetter.new(user_input)
+        puts weather_getter.information
+        comp_planet = Planet.new(weather_getter.temp_f)
+        if weather_getter.temp_f > 70
+            puts "Wow, thats hot!"
+        elsif weather_getter.temp_f < 35
+            puts "BRRRRRR! Too cold for me!"
+        else 
+            puts "#{weather_getter.temp_f}, sounds nice."
+        end
+        puts "It must feel like #{comp_planet.name}!"
     end
 
-    def 
+
 
 
 end

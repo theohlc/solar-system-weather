@@ -1,8 +1,3 @@
-require 'net/http'
-require 'open-uri'
-require 'json'
-require 'pry'
-
 class WeatherGetter
     attr_accessor :location, :temp, :conditions, :name
     #URL = "api.openweathermap.org/data/2.5/weather?q="
@@ -26,14 +21,13 @@ class WeatherGetter
     end
 
     def information
-        temp_f = (temp - 273) * 9 / 5 + 32
-        temp_f = temp_f.truncate
-        "In #{name}, it is #{temp_f} degrees fahrenheit. The prevailing condition is #{conditions.downcase}"
+        get_information
+        disp_temp = temp_f.truncate
+        "In #{name}, it is #{disp_temp} degrees fahrenheit. The prevailing condition is #{conditions.downcase}"
+    end
+
+    def temp_f
+        (temp - 273) * 9 / 5 + 32
     end
 
 end
-
-weather = WeatherGetter.new("55106")
-weather.get_information
-#binding.pry
-p weather.information

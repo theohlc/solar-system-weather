@@ -1,7 +1,5 @@
-require 'pry'
-
 class Planet
-    attr_accessor :temp, :planet_key
+    attr_accessor :planet_key
 
     PLANETS = {
         :mercury => {
@@ -69,11 +67,7 @@ class Planet
         }
     }
 
-    def initialize
-        
-    end
-
-    def planet_set(local_temp)
+    def initialize(local_temp)
         case local_temp
         when 90..200
             @planet_key= :venus
@@ -96,12 +90,16 @@ class Planet
         end
     end
 
-    def avg_temp
+    def name
+        PLANETS[planet_key][:name]
+    end
+
+    def temp
         PLANETS[planet_key][:temp]
     end
 
     def rain
-        PLANETS[planet_key][:temp]
+        PLANETS[planet_key][:rain]
     end
 
     def atm_desc
@@ -109,6 +107,3 @@ class Planet
     end
 end
 
-planet = Planet.new
-planet.planet_set(80)
-puts planet.avg_temp
