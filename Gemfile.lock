@@ -6,12 +6,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.8.0)
     rake (12.3.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   rake (~> 12.0)
   solar-system-weather!
 

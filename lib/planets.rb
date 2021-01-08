@@ -21,7 +21,7 @@ class Planet
             :temp => 61,
             :rain => "water",
             :atm => "air",
-            :fact => "Our home planet, the only planet in the universe known to support life."
+            :fact => "Earth is the only planet in the universe known to support life."
         },
         :mars => {
             :name => "Mars",

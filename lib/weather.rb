@@ -1,5 +1,7 @@
+require 'pry'
+
 class WeatherGetter
-    attr_accessor :location, :temp, :conditions, :name
+    attr_accessor :location, :temp, :conditions, :name, :high, :low, :pressure, :humidity, :description, :code
     #URL = "api.openweathermap.org/data/2.5/weather?q="
     def initialize(location)
         @location = location
@@ -16,18 +18,24 @@ class WeatherGetter
         info = JSON.parse(self.get_weather)
         #binding.pry
         @conditions= info["weather"][0]["main"] #gets conditions as string
-        @temp= info["main"]["temp"]  #gets temp in kelvin as float
+        @description= info["weather"][0]["description"]
+        @code= info["weather"][0]["id"]
+        @temp= to_f(info["main"]["temp"].truncate)  #gets temp in kelvin as int
+        @high= to_f(info["main"]["temp_max"].truncate)
+        @low= to_f(info["main"]["temp_min"].truncate)
+        @pressure= info["main"]["pressure"]
+        @humidity= info["main"]["humidity"] 
         @name= info["name"] #gets name of city
     end
 
     def information
         get_information
-        disp_temp = temp_f.truncate
+        disp_temp = temp
         "In #{name}, it is #{disp_temp} degrees fahrenheit. The prevailing condition is #{conditions.downcase}."
     end
 
-    def temp_f
-        (temp - 273) * 9 / 5 + 32
+    def to_f(kelvin)
+        (kelvin - 273) * 9 / 5 + 32
     end
 
 end
