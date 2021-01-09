@@ -7,7 +7,7 @@ class Planet
             :temp => 800,
             :rain => "none",
             :atm => "none",
-            :fact => "Mercury is the smallest planet."
+            :fact => "Mercury is the smallest planet in our solar system."
         },
         :venus => {
             :name => "Venus",

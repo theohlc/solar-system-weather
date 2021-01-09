@@ -11,7 +11,7 @@ class WeatherController
 
     def get_weather
         user_input = String.new
-        puts "Please enter the US zip code or city name:"
+        puts "Please enter a US zip code or city name:"
         user_input = gets
 
         @weather_getter = WeatherGetter.new(user_input)
@@ -55,19 +55,20 @@ class WeatherController
             when 'return'
                 get_weather
             when 'exit'
-                exit
+                exit!
             end
             
         end
     end
 
     def compare_temps
-        diff = weather_getter.temp - comp_planet.temp
-        puts "Today's high is #{@weather_getter.high}, the low for today is #{@weather_getter.low}"
+       
+        diff = @weather_getter.temp - @comp_planet.temp
+        puts "Today's high is #{weather_getter.high}, the low for today is #{weather_getter.low}"
         if diff > 0
-            puts "Right now it's #{@weather_getter.temp}, #{diff} degrees warmer than the average temperature on #{comp_planet.name}."
+            puts "Right now it's #{weather_getter.temp}, #{diff} degrees warmer than the average temperature on #{comp_planet.name}."
         elsif diff < 0
-            puts "Right now it's #{@weather_getter.temp}, #{-1*diff} degrees colder than the average temperature on #{comp_planet.name}."
+            puts "Right now it's #{weather_getter.temp}, #{-1*diff} degrees colder than the average temperature on #{comp_planet.name}."
         else
             puts "What a coincidence! 61 is the average temperature on earth!"
         end
