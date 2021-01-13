@@ -1,8 +1,6 @@
 # Solar::System::Weather
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/solar/system/weather`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Solar System Weather is a simple educational/weather tool. It brings a bit of fun to the weather. Based on the current temperature for a location, that spot will be compared to the average data for another planet in our solar system.
 
 ## Installation
 
@@ -21,8 +19,10 @@ Or install it yourself as:
     $ gem install solar-system-weather
 
 ## Usage
-
-TODO: Write usage instructions here
+After you have installed the gem, enter into the solar-system-weather-directory
+from the solar-system-weather directory:
+> ruby bin/run
+Then follow the instructions in the terminal. A zip code works best for your location, as there may be multiple cities/town that share a name. However, if you want to use locations outside the US, the city name must be used.
 
 ## Development
 
@@ -32,8 +32,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/solar-system-weather.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/theolhlc/solar-system-weather.
+Please do not abuse my API key. 
 
 ## License
 

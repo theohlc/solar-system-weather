@@ -1,7 +1,7 @@
 class Planet
     attr_accessor :planet_key
 
-    PLANETS = {
+    PLANETS = { #hash of planet facts
         :mercury => {
             :name => "Mercury",
             :temp => 800,
@@ -67,7 +67,7 @@ class Planet
         }
     }
 
-    def initialize(local_temp)
+    def initialize(local_temp) #initialize planet and assign planet with our earth temp
         case local_temp
         when 90..200
             @planet_key= :venus

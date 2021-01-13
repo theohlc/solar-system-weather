@@ -1,7 +1,7 @@
 require 'net/http'
 require 'open-uri'
 require 'json'
-require 'pry'
+#require 'pry'
 
 
 require_relative "../lib/cli.rb"

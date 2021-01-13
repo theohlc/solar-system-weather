@@ -1,8 +1,9 @@
 class WeatherController
-    attr_accessor :weather_getter, :comp_planet
+    attr_accessor :weather_getter, :comp_planet, :previous
 
     def initialize
         puts "Hello! Welcome to Solar System Weather!"
+        @previous = []
         get_weather
     end
 
@@ -13,6 +14,8 @@ class WeatherController
 
         @weather_getter = WeatherGetter.new(user_input)
         puts weather_getter.information
+        
+        previous << weather_getter.name
         @comp_planet = Planet.new(weather_getter.temp)
         if weather_getter.temp > 70
             puts "Wow, thats hot!"
@@ -37,6 +40,7 @@ class WeatherController
             puts "To see more about the atmospheric conditions type 'atm'."
             puts "To see more about precipitation, type 'rain'."
             puts "To try a new location, type 'return'."
+            puts "To see previous locations, type 'previous'." if previous[1]
             puts "To exit, type 'exit'"
         
             input = gets.chomp.strip
@@ -51,6 +55,11 @@ class WeatherController
                 compare_rain
             when 'return'
                 get_weather
+            when 'previous'
+                puts "You have previously looked at:"
+                previous.uniq.each_with_index do |location, i|
+                    puts "#{i+1}. #{location}"
+                end
             when 'exit'
                 exit!
             end
