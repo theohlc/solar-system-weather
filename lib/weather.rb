@@ -1,5 +1,3 @@
-require 'pry'
-
 class WeatherGetter
     attr_accessor :location, :temp, :conditions, :name, :high, :low, :pressure, :humidity, :description, :code
     #URL = "api.openweathermap.org/data/2.5/weather?q="

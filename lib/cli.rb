@@ -1,6 +1,3 @@
-require 'pry'
-require 'awesome_print'
-
 class WeatherController
     attr_accessor :weather_getter, :comp_planet
 
